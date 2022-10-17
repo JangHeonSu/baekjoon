@@ -1,0 +1,17 @@
+#include <cstdio>
+
+int main() {
+
+    int n,k=0;
+
+    scanf("%d", &n);
+
+    for (int i = 1; i <= n; i++)
+    {
+        k += i;
+    }
+
+    printf("%d", k);
+
+    return 0;
+}
