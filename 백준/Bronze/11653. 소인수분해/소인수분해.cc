@@ -3,13 +3,14 @@ int x(int a);
 
 int main()
 {
-	int N;
+	int N,t;
 	scanf("%d", &N);
 
 	while (N != 1)
 	{
-		printf("%d\n", x(N));
-		N = N / x(N);
+        t = x(N);
+		printf("%d\n", t);
+		N = N / t;
 	}
 
 	return 0;
