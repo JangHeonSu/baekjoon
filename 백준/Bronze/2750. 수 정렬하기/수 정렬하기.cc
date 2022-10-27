@@ -13,7 +13,6 @@ int main()
 
 	for (int i = 0; i < N; i++)
 	{
-		int min = 1001;
 		for (int j = i; j < N; j++)
 		{
 			if (num[i] > num[j])
