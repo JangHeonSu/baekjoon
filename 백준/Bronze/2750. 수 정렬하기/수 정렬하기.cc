@@ -13,27 +13,22 @@ int main()
 
 	for (int i = 0; i < N; i++)
 	{
-		int max = -1001;
+		int min = 1001;
 		for (int j = i; j < N; j++)
 		{
-			if (max < num[j])
-				max = num[j];
+			if (min > num[j])
+				min = num[j];
 		}
 
 		for (int j = i; j < N; j++)
 		{
-			if (max == num[j])
+			if (min == num[j])
 			{
 				temp = num[j];
 				num[j] = num[i];
 				num[i] = temp;
 			}
 		}
-		
-	}
-
-	for (int i = N-1; i >= 0; i--)
-	{
 		printf("%d\n", num[i]);
 	}
 
