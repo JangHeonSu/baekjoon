@@ -16,18 +16,11 @@ int main()
 		int min = 1001;
 		for (int j = i; j < N; j++)
 		{
-			if (min > num[j])
-				min = num[j];
-		}
-
-		for (int j = i; j < N; j++)
-		{
-			if (min == num[j])
-			{
-				temp = num[j];
-				num[j] = num[i];
-				num[i] = temp;
-			}
+			if (num[i] > num[j])
+            {     temp = num[i];
+				num[i] = num[j];
+                 num[j] = temp;
+            }
 		}
 		printf("%d\n", num[i]);
 	}
