@@ -1,16 +1,30 @@
 #include <iostream>
 #include <algorithm>
+
 using namespace std;
-int a[1000000];
+
+int num[1000001];
+
+bool comp(int a, int b)
+{
+	return a > b;
+}
+
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++)
-        cin >> a[i];
-    //greater<자료형> 내림차순 함수
-    sort(a, a + n, greater<int>());
-    for (int i = 0; i < n; i++)
-        cout << a[i] << '\n';
+	int N;
+	scanf("%d", &N);
+
+	for (int i = 0; i < N; i++)
+	{
+		scanf("%d", &num[i]);
+	}
+	
+	sort(num, num+N,comp);
+
+	for (int i = 0; i < N; i++)
+	{
+		printf("%d\n", num[i]);
+	}
+
+	return 0;
 }
