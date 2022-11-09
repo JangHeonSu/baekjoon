@@ -5,33 +5,45 @@
 
 using namespace std;
 
-//struct hs {
-//	int age=0;
-//	string name="\n";
-//}x;
+struct hs {
+	int age=0;
+	int index=0;
+	string name="\n";
+};
 
-bool comp(pair<int, string> i, pair<int, string> j)
+bool comp(hs i, hs j)
 {
-	return i.first < j.first;
+	if (i.age < j.age)
+		return true;
+	else if (i.age == j.age)
+	{
+		return i.index < j.index;
+	}
+	else
+		return false;
 }
+
+vector<hs> v;
 
 int main() {
 
 	int N;
+	hs x;
 	cin >> N;
-	pair<int, string> tmp;
-    vector<pair<int,string>> v;
+
 	for (int i=0;i<N;i++)
 	{
-		cin >> tmp.first >> tmp.second;
-		v.push_back(tmp);
+		cin >> x.age;
+		cin >> x.name;
+		x.index = i;
+		v.push_back(x);
 	}
 
-	stable_sort(v.begin(), v.end(),comp);
+	sort(v.begin(), v.end(),comp);
 
 	for (int i = 0; i < N; i++)
 	{
-		cout << v[i].first << " " << v[i].second << '\n';
+		cout << v[i].age << " " << v[i].name << '\n';
 	}
 
 	return 0;
