@@ -1,31 +1,37 @@
 #include <cstdio>
+#include <iostream>
+using namespace std;
 
 int num[20000002] = { 0, };
 
 int main()
 {
-	int t = 0, M, N, a;
+    ios_base :: sync_with_stdio(false); 
+    cin.tie(NULL); 
+    cout.tie(NULL);
+	
+    int t = 0, M, N, a;
 
-	scanf("%d", &N);
+	cin >> N;
 
 	for (int i = 0; i < N; i++)
 	{
-		scanf("%d", &a);
+		cin >> a;
 		a += 10000000;
 		num[a]++;
 	}
 
-	scanf("%d", &M);
+	cin >> M;
 
 	for (int i = 0; i < M; i++)
 	{
-		scanf("%d", &a);
+		cin >> a;
 		a += 10000000;
 		if (num[a] != 0)
 			t = 1;
 		else
 			t = 0;
-		printf("%d ",t);
+		cout << t << ' ';
 	}
 
 	return 0;
