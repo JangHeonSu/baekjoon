@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-int num[20000002] = { 0, };
+bool num[20000002] = { 0, };
 
 int main()
 {
@@ -18,7 +18,7 @@ int main()
 	{
 		cin >> a;
 		a += 10000000;
-		num[a]++;
+		num[a]=true;
 	}
 
 	cin >> M;
