@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <queue>
 #include <algorithm>
 
 using namespace std;
@@ -9,43 +9,33 @@ int main() {
 	cin.tie(NULL);
 	cout.tie(NULL);
 
-	int N, k, Count = 0, jang = 0, sum = 0, f = 0;
-	vector<int> v;
+	queue<int>q;
+	int N, k;
 	cin >> N >> k;
 
 	for (int i = 0; i <N; i++)
 	{
-		v.push_back(i+1);
-		sum += (i + 1);
+		q.push(i + 1);
 	}
 
 	cout << '<';
-
-	int t = 0;
-	while(1)
+	while (1)
 	{
-		if (jang == N - 1)
-		{
-			cout << sum - f << '>';
+		if (q.size() == 1)
 			break;
-		}
-
-		if (v[t%N] != 0)
-			Count++;
 		else
 		{
-			t++;
-			continue;
+			for (int i = 0; i < k-1;i++)
+			{
+				q.push(q.front());
+				q.pop();
+			}
+			cout << q.front() << ',' << ' ';
+			q.pop();
 		}
-		if (Count% k==0)
-		{
-			cout << v[t % N] << ',' << ' ';
-			f += v[t % N];
-			v[t % N] = 0;
-			jang++;
-		}
-		t++;
 	}
+
+	cout << q.front() << '>';
 
 	return 0;
 }
