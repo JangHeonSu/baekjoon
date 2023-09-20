@@ -7,15 +7,12 @@ using namespace std;
 
 string solution(string s) 
 {
-	for (int i = 0; i < s.size(); i++)
+	for (int i = 1; i < s.size(); i++)
 	{
-		s[i] = tolower(s[i]);
-	}
-
-	for (int i = 0; i < s.size(); i++)
-	{
-		if (s[i] == ' ')
-			s[i + 1] = toupper(s[i + 1]);
+		if (s[i - 1] == ' ')
+			s[i] = toupper(s[i]);
+		else
+			s[i] = tolower(s[i]);
 	}
 	s[0] = toupper(s[0]);
 
