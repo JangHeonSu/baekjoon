@@ -11,8 +11,8 @@ vector<int> solution(int brown, int yellow)
 
 	while (1)
 	{
-		if (temp != 0 && sum % temp == 0 && sum / temp != 2)
-			if (2*(temp + sum / temp) - 4 == brown)
+		if (sum % temp == 0 && sum / temp != 2)
+			if (2*(temp + sum / temp- 2) == brown)
 			{
 				answer.push_back(temp);
 				answer.push_back(sum / temp);
