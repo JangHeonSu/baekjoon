@@ -1,32 +1,21 @@
 #include <string>
 #include <vector>
-#include <map>
+#include <set>
 
 using namespace std;
 
-int solution(vector<int> elements)
-{
-	int answer = 0;
-	map<int, int> m;
+int solution(vector<int> elements) {
+    set<int> S;
 
-	for (int i = 1; i<=elements.size(); i++)
-	{
-		int pointer = 0;
-		//길이가 i인 경우
-		while (pointer!=elements.size())
-		{
-			int sum = 0;
-			for (int j = 0; j < i; j++)
-			{
-				sum += elements[(pointer + j)%elements.size()];
-			}
-			m[sum]++;
-			pointer++;
+    int n = elements.size();
 
-			if (i == elements.size())
-				break;
-		}
-	}
-	answer = m.size();
-	return answer;
+    for (int i = 0 ; i < n ; ++i) {
+        int sum = 0;
+        for (int j = i ; j < i + n ; ++j) {
+            sum += elements[j % n];
+            S.insert(sum);
+        }
+    }
+
+    return S.size();
 }
